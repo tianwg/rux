@@ -1,0 +1,9 @@
+/target
+# Scratch metadata from cancelled or local skill evaluations
+/.agents/skills/rex-rux-protocol-e2e-workspace/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+!.env.example

@@ -1,0 +1,25 @@
+[Unit]
+Description=Rex login server (rux)
+Conflicts=rex.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+# Stop only this process. Account servers are in their own session and must
+# keep running across a login-server restart.
+KillMode=process
+ExecStart=/usr/local/bin/rux-server login-server \
+    --listen unix:///run/rex/login-server.sock \
+    --accounts /etc/rex/accounts.jsonc \
+    --runtime-root /run/rex \
+    --log-format text \
+    --pam-service rex-login-server
+ExecReload=/bin/kill -HUP $MAINPID
+RuntimeDirectory=rex
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+# Rex identified the caller before this policy runs, so it never asks for a
+# password. The root login server calls pam_authenticate, pam_acct_mgmt,
+# pam_setcred, and pam_open_session, and pam_close_session when the account
+# server exits. A password prompt is refused.
+auth required pam_permit.so
+account required pam_nologin.so
+account required pam_unix.so
+session required pam_unix.so
+session optional pam_limits.so
+session optional pam_systemd.so

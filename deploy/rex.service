@@ -1,0 +1,26 @@
+[Unit]
+Description=Shared Rex server (user rex, group rex)
+After=network-online.target
+Wants=network-online.target
+Conflicts=rex-login-server.service
+
+[Service]
+Type=simple
+User=rex
+Group=rex
+# Per-account servers from the login server keep sockets here. Do not take
+# /run/rex while those sessions are still running.
+ExecStartPre=/bin/sh -c 'if [ -d /run/rex/accounts ]; then echo "refusing to start: /run/rex/accounts still has per-account servers" >&2; exit 1; fi'
+ExecStart=/usr/local/bin/rux-server \
+    --listen unix:///run/rex/server.sock \
+    --state-dir /var/lib/rex \
+    --socket-mode 0660 \
+    --log-format text
+RuntimeDirectory=rex
+RuntimeDirectoryMode=0750
+StateDirectory=rex
+StateDirectoryMode=0750
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

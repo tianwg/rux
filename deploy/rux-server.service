@@ -1,0 +1,25 @@
+[Unit]
+Description=Rux personal server (Rex-compatible, tailnet only)
+Documentation=file:/usr/local/share/doc/rux/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Official personal server: this is a user unit, so it runs as the login
+# account that owns the user manager. Socket and state come from --personal
+# ($XDG_RUNTIME_DIR/rex and ~/.local/state/rex). No ProtectHome: terminals
+# need that account's home and login environment. This is the boot-persistent
+# form of `rex server start`; it does not pass --exit-empty.
+EnvironmentFile=-/etc/rux/server.env
+ExecStart=/usr/local/bin/rux-server \
+    --personal \
+    --extra-listen tailnet://:7297 \
+    --extra-listen tailnet-serve://%t/rex/serve.sock \
+    --tailnet-only
+Restart=on-failure
+RestartSec=2
+LimitNOFILE=65536
+
+[Install]
+WantedBy=default.target

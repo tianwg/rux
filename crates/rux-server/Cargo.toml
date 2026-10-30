@@ -1,0 +1,36 @@
+[package]
+name = "rux-server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "rux-server"
+path = "src/main.rs"
+
+[dependencies]
+rux-proto = { path = "../rux-proto" }
+anyhow = { workspace = true }
+axum = { workspace = true }
+base64 = { workspace = true }
+chrono = { workspace = true }
+clap = { workspace = true }
+futures-util = { workspace = true }
+indexmap = { workspace = true }
+libc = "0.2.191"
+mlua = { workspace = true }
+portable-pty = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }
+tokio-rustls = { workspace = true }
+rustls-pemfile = { workspace = true }
+rustls = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+unicode-width = { workspace = true }
+tungstenite = "0.29"
+flate2 = { version = "1", default-features = false, features = ["rust_backend"] }
+uuid = { workspace = true }
+vte = { workspace = true }

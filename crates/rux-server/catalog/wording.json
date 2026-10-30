@@ -1,0 +1,127 @@
+{
+  "methods": {
+    "block.close": "Drop a block from its window and stop the process attached to it.",
+    "block.event": "Post one event into a block on behalf of the caller.",
+    "block.method": "Invoke a single creator method on one block.",
+    "block_creator.list": "Return the creators this process provides, with this host id filled in.",
+    "client.action": "Run one named action against this client's keymap.",
+    "client.inspect": "Return the stored record for one connected client.",
+    "client.key": "Forward one key event to a client.",
+    "client.keymap": "Replace the action list this client uses for keys.",
+    "client.list": "Return the clients connected to this server.",
+    "client.perform": "Ask a client to run an action and wait until it answers.",
+    "client.reply": "Finish an outstanding client.perform with a value or an error.",
+    "client.set_label": "Change the label stored on this connection.",
+    "client.set_script": "Install Lua sources for this client, or clear them.",
+    "data.connect": "Issue a single-use ticket for a block's terminal byte stream.",
+    "help.all": "Return the method catalog this process serves.",
+    "hosts.list": "Return the remote hosts saved on this server.",
+    "hosts.put": "Insert or replace one saved remote host.",
+    "hosts.remove": "Delete one saved remote host.",
+    "server.apple.grant_file_access": "Try to make a macOS path readable from this process.",
+    "server.apple.privacy_status": "Return the macOS privacy checks this process can read.",
+    "server.config_reload": "Read the Lua configuration again and publish the new generation.",
+    "server.status": "Return the process id, session count, config generation, and Tailscale state when a sidecar is installed.",
+    "server.stop": "Exit this process. Only a local connection is accepted.",
+    "server.tailscale.disable": "Stop the sidecar Tailscale device and drop its clients.",
+    "server.tailscale.enable": "Start the sidecar Tailscale device.",
+    "server.tailscale.login": "Begin an interactive sign-in for the sidecar device.",
+    "server.tailscale.logout": "Clear the sidecar device's saved sign-in.",
+    "server.tailscale.rename": "Change the sidecar device's hostname.",
+    "server.version": "Return the rux version string, platform name, and API revisions.",
+    "server.whoami": "Return the caller's principal and, when known, the OS account name.",
+    "session.attach": "Subscribe this client to one session.",
+    "session.attach_all": "Subscribe this client to every session that exists.",
+    "session.bootstrap": "Subscribe this client and return the sessions it should open.",
+    "session.close_layer": "Remove one layer from a window.",
+    "session.close_window": "Remove one window from a session.",
+    "session.create": "Open a session, with an optional starting layout.",
+    "session.describe_block": "Return the record for one block.",
+    "session.destroy": "Delete a session and the blocks that belong to it.",
+    "session.detach": "Unsubscribe this client from a session.",
+    "session.detach_block": "Lift a block out of the layout and leave its process running.",
+    "session.disown_block": "Clear the client recorded as a block's owner.",
+    "session.float_block": "Move a block onto a floating layer.",
+    "session.focus_block": "Make one block the focused pane.",
+    "session.focus_direction": "Move focus to the pane that lies in one direction.",
+    "session.focus_next_pane": "Move focus forward one pane.",
+    "session.focus_previous_pane": "Move focus back one pane.",
+    "session.focus_next_window": "Make the next window active.",
+    "session.focus_previous_window": "Make the previous window active.",
+    "session.focus_window": "Make one window active.",
+    "session.help": "Return the catalog entries that apply inside one session.",
+    "session.list": "Return each session id together with its label.",
+    "session.list_blocks": "Return the blocks that belong to a session.",
+    "session.list_clients": "Return the clients subscribed to a session.",
+    "session.lower_layer": "Send a floating layer backward in its window.",
+    "session.move": "Reorder one session among the sessions on this server.",
+    "session.move_block": "Place a block at another spot in the layout tree.",
+    "session.move_window": "Reorder a window inside its session.",
+    "session.new_block": "Create a block and insert it into the layout.",
+    "session.new_layer": "Add a floating layer to a window.",
+    "session.new_split": "Divide a pane and place a new block on one side.",
+    "session.new_window": "Add a window to a session.",
+    "session.own_block": "Record this client as the owner of a block.",
+    "session.raise_layer": "Bring a floating layer forward in its window.",
+    "session.resize_layer": "Change the bounds of a floating layer.",
+    "session.resize_pane": "Change how a split divides its two children.",
+    "session.set_block_label": "Set the label stored on a block.",
+    "session.set_label": "Set the label stored on a session.",
+    "session.set_window_label": "Set the label stored on a window.",
+    "session.swap_blocks": "Exchange the layout positions of two blocks.",
+    "session.view": "Return the windows, layers, and blocks of one session.",
+    "session.zoom_block": "Fill a window with one block, or clear that zoom.",
+    "target.complete": "Suggest ids and labels that match a partial target string.",
+    "target.resolve": "Turn target strings into session, window, block, or client ids."
+  },
+  "block_methods": {
+    "com.superlogical.onboarding.set_step": "Store a new step name on a guide block.",
+    "com.superlogical.onboarding.state": "Return the step name a guide block is holding.",
+    "com.superlogical.terminal.blob_read": "Return one page of bytes kept from the terminal.",
+    "com.superlogical.terminal.clear": "Erase the visible terminal grid.",
+    "com.superlogical.terminal.clipboard_read": "Return the text this terminal last copied.",
+    "com.superlogical.terminal.format": "Render the screen as plain text, HTML, or VT.",
+    "com.superlogical.terminal.input_mode": "Return the input mode the terminal is using.",
+    "com.superlogical.terminal.list_dir": "List one directory on the machine that owns the terminal.",
+    "com.superlogical.terminal.modes": "Return which terminal modes are currently set.",
+    "com.superlogical.terminal.process": "Return the foreground process inside the terminal.",
+    "com.superlogical.terminal.program_status": "Return the OSC 7501 records stored for this terminal.",
+    "com.superlogical.terminal.pwd": "Return the working directory the terminal last reported.",
+    "com.superlogical.terminal.reset": "Restore default terminal modes and erase the grid.",
+    "com.superlogical.terminal.resize": "Set the terminal's row and column count.",
+    "com.superlogical.terminal.set_theme": "Replace the palette the terminal is drawing with.",
+    "com.superlogical.terminal.size": "Return the terminal's current cell geometry.",
+    "com.superlogical.terminal.title": "Return the title string the terminal is showing.",
+    "com.superlogical.terminal.write": "Send bytes or a key sequence into the terminal."
+  },
+  "actions": {
+    "com.superlogical.terminal.clear": {
+      "title": "Clear pane",
+      "description": "Erase the grid and the scrollback this pane is keeping."
+    },
+    "com.superlogical.terminal.reset": {
+      "title": "Reset pane",
+      "description": "Put terminal modes back to their defaults and erase the grid."
+    }
+  },
+  "creators": {
+    "com.superlogical.onboarding": {
+      "title": "Guide",
+      "description": "A block that stores a single step name a client can show."
+    },
+    "com.superlogical.terminal": {
+      "title": "Terminal pane",
+      "description": "A PTY block with its own screen buffer."
+    }
+  },
+  "flavors": {
+    "com.superlogical.onboarding.onboarding": {
+      "title": "Walkthrough",
+      "description": "Holds one step string for a client to display."
+    },
+    "com.superlogical.terminal.shell": {
+      "title": "Shell",
+      "description": "Starts the account shell, or the command given in options."
+    }
+  }
+}
